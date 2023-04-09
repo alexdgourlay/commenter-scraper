@@ -1,0 +1,16 @@
+[package]
+name = "commenter-scraper-service"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+content-scraper = {path = "../content-scraper"}
+tonic = "0.8"
+prost = "0.11"
+tokio = { version = "1.0", features = ["macros", "rt-multi-thread"] }
+reqwest= "0.11.16"
+
+[build-dependencies]
+tonic-build = "0.8"
