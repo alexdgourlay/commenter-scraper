@@ -1,4 +1,13 @@
+// Build script runs before package is built.
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    tonic_build::compile_protos("../../proto/scraper.proto")?;
+    /*
+     * Build protobufs
+     */
+    tonic_build::configure()
+        .protoc_arg("--experimental_allow_proto3_optional") // Enable optional proto fields. 
+        .compile(
+            &["../../proto/scraper.proto"],
+            &["../../proto"],
+        )?;
     Ok(())
 }

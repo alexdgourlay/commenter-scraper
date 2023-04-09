@@ -12,7 +12,9 @@ use tonic::transport::Server;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let addr: SocketAddr = "[::1]:50051".parse()?;
+    // Use full IP address format, short form [::1] causes errors.
+    let addr: SocketAddr = "0.0.0.0:50051".parse()?;
+    
     let scraper_service = ScraperService::default();
 
     println!("Starting server on port {}", addr.to_string());
