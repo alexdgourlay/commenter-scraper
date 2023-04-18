@@ -1,2 +1,6 @@
 /target
 /pkg
+
+# Proto files are copied in from proto source directory, in build.rs.
+# Copied version should not be added to source control.
+/proto

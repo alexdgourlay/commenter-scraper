@@ -2,12 +2,9 @@ FROM rust:1.68
 
 RUN apt-get update && apt-get install -y libprotobuf-dev protobuf-compiler
 
-WORKDIR /usr/src/
+WORKDIR /usr/src/app
 
-COPY ./scraper ./scraper
-COPY ./proto/scraper.proto ./proto/scraper.proto
-
-WORKDIR /usr/src/scraper
+COPY . .
 
 RUN cargo build --release
 
